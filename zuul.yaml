@@ -1,14 +1,14 @@
 - job:
-    name: dependent-test
+    name: dependent-test-a
     run: playbooks/dependent-test-job.yaml
 - job:
-    name: independent-test
+    name: independent-test-a
     run: playbooks/independent-test-job.yaml
 
 - project:
     check: 
       jobs: 
-        - independent-test
+        - independent-test-a
     gate:
       jobs:
-        - dependent-test
+        - dependent-test-a
